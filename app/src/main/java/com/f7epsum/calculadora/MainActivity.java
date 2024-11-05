@@ -3,6 +3,7 @@ package com.f7epsum.calculadora;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    double valorActual = 0;
+    double valorPrevio = 0;
+    String operador = "";
+    boolean nuevoNumero = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,32 +39,94 @@ public class MainActivity extends AppCompatActivity {
         Button button7 = findViewById(R.id.button7);
         Button button8 = findViewById(R.id.button8);
         Button button9 = findViewById(R.id.button9);
+        Button buttonDecimal = findViewById(R.id.buttonDecimal);
         Button buttonMas = findViewById(R.id.buttonMas);
         Button buttonMenos = findViewById(R.id.buttonMinus);
         Button buttonMultiplicar = findViewById(R.id.buttonMultiplicacion);
         Button buttonDividir = findViewById(R.id.buttonDiv);
-        Button buttonPorcentaje = findViewById(R.id.buttonporc);
+        Button buttonClear = findViewById(R.id.buttonClear);
         Button buttonCalcular = findViewById(R.id.buttonCalc);
+        TextView pantalla = findViewById(R.id.pantalla);
 
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String textoPantalla = (String) pantalla.getText();
-                textoPantalla += 0;
-                pantalla.setText(textoPantalla):
+        View.OnClickListener listenerNumeros = v -> {
+          Button button = (Button) v;
+          if (nuevoNumero){
+              pantalla.setText(button.getText().toString());
+              nuevoNumero = false;
+          }else {
+              pantalla.append(button.getText().toString());
+          }
+          valorActual = Double.parseDouble(pantalla.getText().toString());
+        };
 
+        buttonDecimal.setOnClickListener(v -> {
+            String textoPantalla = pantalla.getText().toString();
+            if (nuevoNumero) {
+                pantalla.setText("0.");
+                nuevoNumero = false;
+            } else if (!textoPantalla.contains(",")) {
+                pantalla.append(",");
             }
         });
 
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String textoPantalla = (String) pantalla.getText();
-                textoPantalla += 0;
-                pantalla.setText(textoPantalla):
+        button0.setOnClickListener(listenerNumeros);
+        button1.setOnClickListener(listenerNumeros);
+        button2.setOnClickListener(listenerNumeros);
+        button3.setOnClickListener(listenerNumeros);
+        button4.setOnClickListener(listenerNumeros);
+        button5.setOnClickListener(listenerNumeros);
+        button6.setOnClickListener(listenerNumeros);
+        button7.setOnClickListener(listenerNumeros);
+        button8.setOnClickListener(listenerNumeros);
+        button9.setOnClickListener(listenerNumeros);
+
+        View.OnClickListener listenerOperators = view -> {
+            Button button = (Button) view;
+            operador = button.getText().toString();
+            valorPrevio = valorActual;
+            nuevoNumero = true;
+        };
+
+        buttonMas.setOnClickListener(listenerOperators);
+        buttonMenos.setOnClickListener(listenerOperators);
+        buttonMultiplicar.setOnClickListener(listenerOperators);
+        buttonDividir.setOnClickListener(listenerOperators);
+        buttonClear.setOnClickListener(listenerOperators);
+
+        buttonCalcular.setOnClickListener(view -> {
+            double result = 0;
+            switch (operador){
+                case "+":
+                    result = valorPrevio + valorActual;
+                    break;
+                case "-":
+                    result = valorPrevio - valorActual;
+                    break;
+                case "*":
+                    result = valorPrevio * valorActual;
+                    break;
+                case "/":
+                    if (valorActual != 0){
+                        result = valorPrevio / valorActual;
+                    } else {
+                        pantalla.setText("Error MATH");
+                        return;
+                    }
+                    break;
 
             }
+            pantalla.setText(String.valueOf(result));
+            valorActual = result;
+            nuevoNumero = true;
         });
+
+        buttonClear.setOnClickListener(view -> {
+            valorActual = 0;
+            valorPrevio = 0;
+            pantalla.setText("0");
+            nuevoNumero = true;
+        });
+
 
     }
 }

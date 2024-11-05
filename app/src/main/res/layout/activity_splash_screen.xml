@@ -7,19 +7,46 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreen">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splashGLH1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splashGLV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splashGLV2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85"
+        />
+
     <ImageView
         android:id="@+id/logoSplash"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:src="@drawable/dibujo_2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/splashGLV1"
+        app:layout_constraintEnd_toEndOf="@+id/splashGLV2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculadora"
+        android:fontFamily="@font/calculator"
+        android:textSize="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoSplash"

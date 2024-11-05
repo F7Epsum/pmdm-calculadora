@@ -23,7 +23,11 @@ public class SplashScreen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        launchMain();
     }
+
+
     public void launchMain() {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
@@ -34,6 +38,6 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        }, 5000);
+        }, 2500);
         }
 }

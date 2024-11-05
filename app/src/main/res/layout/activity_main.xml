@@ -7,16 +7,54 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splashGLH1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splashGLV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splashGLV2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85"
+        />
+
     <TextView
         android:id="@+id/pantalla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Pantalla"
+        android:fontFamily="@font/calculator"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="@+id/splashGLV2"
+        app:layout_constraintEnd_toEndOf="@+id/splashGLV2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/splashGLV2"
+        android:layout_margin="100dp"
         />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pantalla">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,72 +62,73 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="1" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="2" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="3" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/buttonMultiplicacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="*" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="4" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="5" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="6" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/buttonMas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="+" />
         </LinearLayout>
 
@@ -99,35 +138,35 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="7" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="8" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="9" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/buttonMinus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="-" />
         </LinearLayout>
 
@@ -137,43 +176,43 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/buttonDiv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="/" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
                 android:id="@+id/button0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="0" />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
-                android:id="@+id/buttondecimal"
+                android:id="@+id/buttonDecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/calculator_buttom"
                 android:text="," />
 
             <android.widget.Button
-                android:background="@drawable/calculator_buttom"
-                android:id="@+id/buttonporc"
+                android:id="@+id/buttonClear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="%" />
+                android:background="@drawable/calculator_buttom"
+                android:text="AC" />
         </LinearLayout>
+
         <Button
             android:id="@+id/buttonCalc"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calcular"
-            />
+            android:text="Calcular" />
 
     </LinearLayout>
 
